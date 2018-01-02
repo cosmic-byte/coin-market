@@ -1,15 +1,11 @@
 from flask import request
 from flask_restplus import Resource
 from .util.dto import StudentDto
-from ..service.userService import save_new_user, get_all_users
+from ..service.userService import save_new_user, get_all_users, get_student
 
 
 api = StudentDto.api
 student = StudentDto.student
-
-student_mock = [
-    {'email': 'greg@gmail.com', 'username': 'blake007', 'first_name': 'Greg', 'last_name': 'Greg', 'public_id': '1002'},
-]
 
 
 @api.route('/')
@@ -30,3 +26,19 @@ class StudentList(Resource):
         data = request.json
         save_new_user(data=data)
         return None, 201
+
+
+@api.route('/<public_id>')
+@api.param('public_id', 'The Student identifier')
+@api.response(404, 'User not found.')
+class Student(Resource):
+
+    @api.doc('get a student')
+    @api.marshal_with(student)
+    def get(self, public_id):
+        """get a student given its identifier"""
+        _student = get_student(public_id)
+        if not _student:
+            api.abort(404)
+        else:
+            return _student

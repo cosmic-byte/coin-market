@@ -21,6 +21,10 @@ def get_all_users():
     return User.query.all()
 
 
+def get_student(public_id):
+    return User.query.filter_by(public_id=public_id).first()
+
+
 def save_changes(data):
     db.session.add(data)
     db.session.commit()
