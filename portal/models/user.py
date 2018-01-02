@@ -9,7 +9,7 @@ class User(db.Model):
     username = db.Column(db.String(50), unique=True)
     first_name = db.Column(db.String(50))
     last_name = db.Column(db.String(50))
-    password_harsh = db.Column(db.String(50))
+    password_hash = db.Column(db.String(50))
 
     @property
     def password(self):
@@ -17,10 +17,10 @@ class User(db.Model):
 
     @password.setter
     def password(self, password):
-        self.password_harsh = generate_password_hash(password)
+        self.password_hash = generate_password_hash(password, method='sha256')
 
     def check_password(self, password):
-        return check_password_hash(self.password_harsh, password)
+        return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
         return "<User '{}'>".format(self.username)

@@ -16,7 +16,7 @@ class StudentDto:
         'first_name': fields.String(required=True, description='students first_name'),
         'last_name': fields.String(required=True, description='students last_name'),
         'username': fields.String(required=True, description='students username'),
-        'public_id': fields.String(required=True, description='students public Identity'),
+        'password': fields.String(required=True, description='students password')
     })
 
 

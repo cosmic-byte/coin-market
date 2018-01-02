@@ -11,8 +11,8 @@ def create_app(config_name):
     app.config.from_object(config_by_name[config_name])
     db.init_app(app)
 
-    from .api import blueprint as auth_blueprint
-    app.register_blueprint(auth_blueprint)
+    from .api import blueprint as api_blueprint
+    app.register_blueprint(api_blueprint)
 
     return app
 
