@@ -1,7 +1,9 @@
 from functools import wraps
-from flask import request
-from portal.config import key
+
 import jwt
+from flask import request
+
+from app.portal.config import key
 
 
 def token_required(f):

@@ -12,6 +12,7 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'portal.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    database_name = 'portal'
 
 
 class TestingConfig(Config):
@@ -22,12 +23,13 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'portal.db')
+    database_name = 'portal'
 
 
 config_by_name = dict(
     dev=DevelopmentConfig,
     test=TestingConfig,
-    prod= ProductionConfig
+    prod=ProductionConfig
 )
 
 key = Config.SECRET_KEY

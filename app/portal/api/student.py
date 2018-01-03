@@ -12,7 +12,6 @@ student = StudentDto.student
 @api.route('/')
 class StudentList(Resource):
 
-    @token_required
     @api.doc('list_of_students')
     @api.marshal_list_with(student, envelope='data')
     def get(self):

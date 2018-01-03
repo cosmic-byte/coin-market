@@ -1,10 +1,8 @@
 import os
-from portal import create_app, db
 
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
-
-from portal.models import user, course
+from app.portal import create_app, db
 
 app = create_app(os.getenv('PORTAL_ENV') or 'dev')
 manager = Manager(app)

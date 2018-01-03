@@ -1,7 +1,8 @@
 import uuid
 
-from portal import db
-from portal.models.user import User
+from app.portal import db
+
+from app.portal.models.user import User
 
 
 def save_new_user(data):
