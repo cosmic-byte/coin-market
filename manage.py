@@ -5,6 +5,8 @@ import coverage
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from app.portal import create_app, db
+from app.portal.models import course, user
+
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = create_app(os.getenv('PORTAL_ENV') or 'dev')

@@ -3,9 +3,14 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    """ User Model for storing user related details """
+    __tablename__ = "user"
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    email = db.Column(db.String(255), unique=True, nullable=False)
+    registered_on = db.Column(db.DateTime, nullable=False)
+    admin = db.Column(db.Boolean, nullable=False, default=False)
     public_id = db.Column(db.String(50), unique=True)
-    email = db.Column(db.String(120), unique=True)
     username = db.Column(db.String(50), unique=True)
     first_name = db.Column(db.String(50))
     last_name = db.Column(db.String(50))
