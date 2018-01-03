@@ -1,6 +1,7 @@
 from flask import request
 from flask_restplus import Resource
 from .util.dto import StudentDto
+from .util.decorator import token_required
 from ..service.userService import save_new_user, get_all_users, get_student
 
 
@@ -11,8 +12,9 @@ student = StudentDto.student
 @api.route('/')
 class StudentList(Resource):
 
+    @token_required
     @api.doc('list_of_students')
-    @api.marshal_list_with(student)
+    @api.marshal_list_with(student, envelope='data')
     def get(self):
         """List all available students"""
         return get_all_users()
