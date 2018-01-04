@@ -1,5 +1,7 @@
 from flask import request
 from flask_restplus import Resource
+
+from app.portal.api.util.decorator import token_required, admin_token_required
 from .util.dto import StudentDto
 from ..service.userService import save_new_user, get_all_users, get_student
 
@@ -12,6 +14,7 @@ student = StudentDto.student
 class StudentList(Resource):
 
     @api.doc('list_of_students')
+    @admin_token_required
     @api.marshal_list_with(student, envelope='data')
     def get(self):
         """List all available students"""

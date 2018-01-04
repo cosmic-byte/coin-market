@@ -2,7 +2,6 @@ from flask import request
 from flask_restplus import Resource
 from .util.dto import AuthDto
 from app.portal.models.user import User
-from app.portal.models.blacklist import BlacklistToken
 from ..service.blacklistService import save_token
 
 api = AuthDto.api
@@ -49,23 +48,16 @@ class UserLogin(Resource):
             return response_object, 500
 
 
-@api.route('/status')
-class UserAPI(Resource):
+class UserAPI:
     """
     User Resource
     """
-    def get(self):
+    @staticmethod
+    def get_logged_in_user(new_request):
         # get the auth token
-        auth_header = request.headers.get('Authorization')
+        auth_header = new_request.headers.get('Authorization')
         if auth_header:
-            try:
-                auth_token = auth_header.split(" ")[1]
-            except IndexError:
-                response_object = {
-                    'status': 'fail',
-                    'message': 'Bearer token malformed.'
-                }
-                return response_object, 401
+            auth_token = auth_header
         else:
             auth_token = ''
         if auth_token:

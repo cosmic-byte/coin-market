@@ -1,28 +1,43 @@
 from functools import wraps
 
-import jwt
 from flask import request
 
-from app.portal.config import key
+from app.portal.api.auth import UserAPI
 
 
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
 
-        token = None
-
-        if 'X-AUTH-KEY' in request.headers:
-            token = request.headers['X-AUTH-KEY']
+        data, status = UserAPI.get_logged_in_user(request)
+        token = data.get('data')
 
         if not token:
-            return {'message': 'Token is missing.'}, 401
+            return data, status
 
-        try:
-            data = jwt.decode(token, key)
+        return f(*args, **kwargs)
 
-        except:
-            return {'message': 'Token is invalid.'}, 401
+    return decorated
+
+
+def admin_token_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+
+        data, status = UserAPI.get_logged_in_user(request)
+        token = data.get('data')
+
+        if not token:
+            return data, status
+
+        admin = token.get('admin')
+        print('--------'+str(admin))
+        if not admin:
+            response_object = {
+                'status': 'fail',
+                'message': 'admin token required'
+            }
+            return response_object, 401
 
         return f(*args, **kwargs)
 
