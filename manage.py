@@ -5,7 +5,7 @@ import coverage
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from app.portal import create_app, db
-from app.portal.models import course, user
+from app.portal.models import course, user, blacklist
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
