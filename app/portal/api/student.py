@@ -1,7 +1,6 @@
 from flask import request
 from flask_restplus import Resource
 from .util.dto import StudentDto
-from .util.decorator import token_required
 from ..service.userService import save_new_user, get_all_users, get_student
 
 
@@ -19,14 +18,12 @@ class StudentList(Resource):
         return get_all_users()
 
     @api.response(201, 'Category successfully created.')
-    @api.marshal_with(student)
     @api.doc('create a new student')
     @api.expect(student)
     def post(self):
         """Creates a new Student ."""
         data = request.json
-        save_new_user(data=data)
-        return None, 201
+        return save_new_user(data=data)
 
 
 @api.route('/<public_id>')
