@@ -1,7 +1,7 @@
 import os
 
 postgres_local_base = 'postgresql://postgres:@localhost/'
-database_name = 'portal'
+database_name = 'market'
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
@@ -18,7 +18,7 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     DEBUG = True
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'portal.db')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'market.db')
     PRESERVE_CONTEXT_ON_EXCEPTION = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 

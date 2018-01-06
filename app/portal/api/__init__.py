@@ -2,17 +2,15 @@ from flask_restplus import Api
 from flask import Blueprint
 
 from .auth import api as auth_ns
-from .student import api as student_ns
-from .course import api as course_ns
+from .user import api as user_ns
 
 blueprint = Blueprint('api', __name__)
 
 api = Api(blueprint,
-          title='Student Management System',
+          title='Crypto Currency Market Platform',
           version='1.0',
-          description='portal for university students '
+          description='a platform for people to make crypto transactions'
           )
 
 api.add_namespace(auth_ns, path='/auth')
-api.add_namespace(student_ns, path='/student')
-api.add_namespace(course_ns, path='/course')
+api.add_namespace(user_ns, path='/user')

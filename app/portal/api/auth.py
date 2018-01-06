@@ -13,7 +13,7 @@ class UserLogin(Resource):
     """
         User Login Resource
     """
-    @api.doc('student login')
+    @api.doc('user login')
     @api.expect(info)
     def post(self):
         # get the post data
@@ -35,9 +35,9 @@ class UserLogin(Resource):
             else:
                 response_object = {
                     'status': 'fail',
-                    'message': 'User does not exist.'
+                    'message': 'email or password does not match.'
                 }
-                return response_object, 404
+                return response_object, 401
 
         except Exception as e:
             print(e)
