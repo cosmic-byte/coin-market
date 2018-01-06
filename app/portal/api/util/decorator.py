@@ -31,7 +31,6 @@ def admin_token_required(f):
             return data, status
 
         admin = token.get('admin')
-        print('--------'+str(admin))
         if not admin:
             response_object = {
                 'status': 'fail',
