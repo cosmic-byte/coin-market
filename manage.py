@@ -4,7 +4,8 @@ import coverage
 
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
-from app.portal import create_app, db
+
+from app.portal import create_app, db, socketio
 from app.portal.models import user, blacklist
 
 
@@ -17,7 +18,6 @@ migrate = Migrate(app, db)
 
 manager.add_command('db', MigrateCommand)
 
-
 COV = coverage.coverage(
     branch=True,
     include='app/*',
@@ -28,6 +28,11 @@ COV = coverage.coverage(
     ]
 )
 COV.start()
+
+
+@manager.command
+def run():
+    socketio.run(app)
 
 
 @manager.command
