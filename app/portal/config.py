@@ -1,7 +1,6 @@
 import os
 
-postgres_local_base = 'postgresql://postgres:@localhost/'
-database_name = 'market'
+postgres_local_base = os.environ['DATABASE_URL']
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
@@ -11,7 +10,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = postgres_local_base + database_name
+    SQLALCHEMY_DATABASE_URI = postgres_local_base
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
@@ -25,7 +24,7 @@ class TestingConfig(Config):
 
 class ProductionConfig(Config):
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = postgres_local_base + database_name
+    SQLALCHEMY_DATABASE_URI = postgres_local_base
 
 
 config_by_name = dict(
