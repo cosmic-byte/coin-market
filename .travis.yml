@@ -1,5 +1,10 @@
 language: python
 python:
- - "3.5"
+- '3.5'
 install: pip install -r requirements.txt
 script: sh run_travis.sh
+env:
+  global:
+  - PORTAL_ENV='dev'
+  - DATABASE_URL='postgresql://postgres:@localhost/market'
+  - secure: kczO33wD9l+suPIXMj6w8Jf+DrzizoZZKktayam0l8mBWPZnv2ncJ+Y3xWdEDbst4faDBh8XmoGUwVLloCp8O/V+ogDUjW7ZgPE/X6GCkWf+DpnrAp7sBmfcx5D3Sj5+rb9OWSU74UWXxZggi0wI40RitnxmHZzY7zgYskRrG3kQBHIXoGg0t8djk19S8Sl5lVSNZUfugEWMa5zGTXopSpck0GR7nt7NsY/EVSA9E6N6PIzv8EOJ6iY77pRlw/eq4460PCU9FCQ7fqLpxcQPWNU7c1iuJd2Hwv+7ZfEJ5In+pc+uITf6YUAbdYXwQIO+2Kulm7cORNV/jToiGdyy60dEhtBAjMm7cyU56GyDsQs0K28hOENqL5Zopx1gpYSnPF69fAyRQ9KCw9EaAzMMcYlDqmazJ5wbLIjQaNSjmoTP61mffvYjuoheX7j6rFv0W/3EMb/Kg88A+MBzI54YBy52VNX7/1piOMtmUaj58hJg8uBPn2yIzxJDcnkGcvz5rHx86vtbxrKtl6cQsNXZLukNVjNIHne1Ucjwz7KJA+bsuAA27Xnf2mckJWD7H2IEK7i0tLLYXfnM1lkO9Exy2KBLltngCe29fwG5q4nVV/bjNIm/el4dwTzXpE4nG2+CFsBYs1XG7pXh89vfsY6Dbva2kqNBe2n12NRHfKs0L1o=
