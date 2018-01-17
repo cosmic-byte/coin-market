@@ -13,31 +13,31 @@ student = UserDto.student
 @api.route('/')
 class StudentList(Resource):
 
-    @api.doc('list_of_students')
+    @api.doc('list_of_registered_users')
     @admin_token_required
     @api.marshal_list_with(student, envelope='data')
     def get(self):
-        """List all available students"""
+        """List all registered users"""
         return get_all_users()
 
     @api.response(201, 'Category successfully created.')
-    @api.doc('create a new student')
+    @api.doc('create a new user')
     @api.expect(student)
     def post(self):
-        """Creates a new Student ."""
+        """Creates a new User ."""
         data = request.json
         return save_new_user(data=data)
 
 
 @api.route('/<public_id>')
-@api.param('public_id', 'The Student identifier')
+@api.param('public_id', 'The User identifier')
 @api.response(404, 'User not found.')
 class Student(Resource):
 
-    @api.doc('get a student')
+    @api.doc('get a user')
     @api.marshal_with(student)
     def get(self, public_id):
-        """get a student given its identifier"""
+        """get a user given its identifier"""
         _student = get_student(public_id)
         if not _student:
             api.abort(404)
