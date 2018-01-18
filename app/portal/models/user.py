@@ -19,6 +19,7 @@ class User(db.Model):
     first_name = db.Column(db.String(50))
     last_name = db.Column(db.String(50))
     password_hash = db.Column(db.String(100))
+    messages = db.relationship('Message', backref='user', lazy='dynamic')
 
     @property
     def password(self):

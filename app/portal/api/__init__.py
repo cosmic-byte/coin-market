@@ -3,7 +3,7 @@ from flask import Blueprint
 
 from .auth import api as auth_ns
 from .user import api as user_ns
-from ..api import room
+from app.portal.api import room
 
 blueprint = Blueprint('api', __name__)
 

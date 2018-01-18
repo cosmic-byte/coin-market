@@ -5,12 +5,17 @@ import coverage
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
+from app.portal.api import blueprint as api_blueprint
+
 from app.portal import create_app, db, socketio
-from app.portal.models import user, blacklist
+from app.portal.models import user, blacklist, message
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = create_app(os.getenv('PORTAL_ENV') or 'dev')
+
+app.register_blueprint(api_blueprint)
+app.app_context().push()
 
 manager = Manager(app)
 
