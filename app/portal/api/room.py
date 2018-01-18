@@ -1,9 +1,7 @@
+from app.portal.api.util.dto import MessageDto
 from .. import socketio
 from flask_socketio import emit
-
-
-messages = [{'user': 'Greg', 'msg': 'hello world kedu'},
-            {'user': 'Austine', 'msg': 'hello world keekwanu'}]
+from app.portal.service.messageService import get_all_message, save_new_message
 
 
 def message_received():
@@ -12,12 +10,16 @@ def message_received():
 
 @socketio.on('connect', namespace='/room')
 def handle_event():
-    print('Hello New user')
+    messages = get_all_message()
     for msg in messages:
-        emit('message', msg)
+        msgg = MessageDto(user_id=msg.user_id, message=msg.message, created_on=msg.created_on)
+        emit('message', msgg.serialize())
 
 
 @socketio.on('chat', namespace='/room')
 def handle_my_custom_event(json):
     print('recived my event: ' + str(json))
-    socketio.emit('message', json, callback=message_received)
+    save_new_message(data=json)
+    emit('message', json, broadcast=True)
+
+
