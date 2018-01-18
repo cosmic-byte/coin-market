@@ -1,5 +1,7 @@
 from flask_restplus import Namespace, fields
 
+from app.portal.models.user import User
+
 
 class UserDto:
     api = Namespace('user', description='user related operations')
@@ -19,3 +21,22 @@ class AuthDto:
         'email': fields.String(required=True, description='The email address'),
         'password': fields.String(required=True, description='The user password '),
     })
+
+
+class MessageDto:
+
+    def __init__(self, message, created_on, user_id):
+        self.message = message
+        self.created_on = created_on
+        self.user_id = user_id
+
+    def get_username(self):
+        user = User.query.filter_by(id=self.user_id).first()
+        return user.username
+
+    def serialize(self):
+        return {
+            'message': self.message,
+            'created_on': str(self.created_on.time()),
+            'username': self.get_username(),
+        }

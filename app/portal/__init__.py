@@ -18,9 +18,6 @@ def create_app(config_name):
     flask_bcrypt.init_app(app)
     CORS(app)
 
-    from app.portal.api import blueprint as api_blueprint
-    app.register_blueprint(api_blueprint)
-
     socketio.init_app(app)
 
     return app
