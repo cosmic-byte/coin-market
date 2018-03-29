@@ -29,7 +29,7 @@ class UserLogin(Resource):
                     response_object = {
                         'status': 'success',
                         'message': 'Successfully logged in.',
-                        'auth_token': auth_token.decode()
+                        'Authorization': auth_token.decode()
                     }
                     return response_object, 200
             else:
