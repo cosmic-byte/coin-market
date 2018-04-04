@@ -15,7 +15,7 @@ class UserLogin(Resource):
         User Login Resource
     """
     @api.doc('user login')
-    @cross_origin(allow_headers=['Authorization'])
+    @cross_origin(expose_headers=['Authorization'])
     @api.expect(info)
     def post(self):
         # get the post data
