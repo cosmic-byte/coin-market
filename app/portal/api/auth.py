@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, make_response
 from flask_restplus import Resource
 from .util.dto import AuthDto
 from app.portal.models.user import User
@@ -31,7 +31,9 @@ class UserLogin(Resource):
                         'message': 'Successfully logged in.',
                         'Authorization': auth_token.decode()
                     }
-                    return response_object, 200
+                    resp = make_response('success', 200)
+                    resp.headers.extend({'Authorization': auth_token.decode()})
+                    return resp
             else:
                 response_object = {
                     'status': 'fail',
