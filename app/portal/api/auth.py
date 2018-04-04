@@ -1,4 +1,5 @@
 from flask import request, make_response
+from flask_cors import cross_origin
 from flask_restplus import Resource
 from .util.dto import AuthDto
 from app.portal.models.user import User
@@ -14,6 +15,7 @@ class UserLogin(Resource):
         User Login Resource
     """
     @api.doc('user login')
+    @cross_origin(allow_headers=['Authorization'])
     @api.expect(info)
     def post(self):
         # get the post data
