@@ -15,7 +15,7 @@ class UserLogin(Resource):
         User Login Resource
     """
     @api.doc('user login')
-    @cross_origin(expose_headers=['Authorization'])
+    # @cross_origin(expose_headers=['Authorization'])
     @api.expect(info)
     def post(self):
         # get the post data
@@ -33,13 +33,13 @@ class UserLogin(Resource):
                         'message': 'Successfully logged in.',
                         'Authorization': auth_token.decode()
                     }
-                    resp = make_response('success', 200)
-                    resp.headers.extend({'Authorization': auth_token.decode()})
-                    return resp
+                    # resp = make_response('success', 200)
+                    # resp.headers.extend({'Authorization': auth_token.decode()})
+                    return response_object, 200
             else:
                 response_object = {
                     'status': 'fail',
-                    'message': 'email or password does not match.'
+                    'message': 'email or password is invalid.'
                 }
                 return response_object, 401
 
