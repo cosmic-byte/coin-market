@@ -12,6 +12,9 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = postgres_local_base
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    # Because we're security-conscious developers, we also hard-code disabling
+    # the CDN support (this might become a default in later versions):
+    BOOTSTRAP_SERVE_LOCAL = True
 
 
 class TestingConfig(Config):
@@ -25,6 +28,7 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = postgres_local_base
+    BOOTSTRAP_SERVE_LOCAL = True
 
 
 config_by_name = dict(

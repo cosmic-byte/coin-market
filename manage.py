@@ -1,3 +1,4 @@
+import operator
 import os
 import unittest
 import coverage
@@ -8,12 +9,14 @@ from flask_script import Manager
 from app.portal.api import blueprint as api_blueprint
 
 from app.portal import create_app, db, socketio
+from app.portal.frontend import frontend
 from app.portal.models import user, blacklist, message
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = create_app(os.getenv('PORTAL_ENV') or 'dev')
 
+app.register_blueprint(frontend)
 app.register_blueprint(api_blueprint)
 app.app_context().push()
 
@@ -66,6 +69,20 @@ def cov():
         COV.erase()
         return 0
     return 1
+
+
+@manager.command
+def routes():
+    'Display registered routes'
+    rules = []
+    for rule in app.url_map.iter_rules():
+        methods = ','.join(sorted(rule.methods))
+        rules.append((rule.endpoint, methods, str(rule)))
+
+    sort_by_rule = operator.itemgetter(2)
+    for endpoint, methods, rule in sorted(rules, key=sort_by_rule):
+        route = '{:50s} {:25s} {}'.format(endpoint, methods, rule)
+        print(route)
 
 if __name__ == '__main__':
     manager.run()
