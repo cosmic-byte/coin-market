@@ -5,7 +5,7 @@ from .auth import api as auth_ns
 from .user import api as user_ns
 from app.portal.api import room
 
-blueprint = Blueprint('api', __name__)
+blueprint = Blueprint('api', __name__, url_prefix='/api')
 
 api = Api(blueprint,
           title='Crypto Currency Market Platform',
