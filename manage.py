@@ -2,6 +2,7 @@ import operator
 import os
 import unittest
 import coverage
+from flask import render_template
 
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
@@ -83,6 +84,16 @@ def routes():
     for endpoint, methods, rule in sorted(rules, key=sort_by_rule):
         route = '{:50s} {:25s} {}'.format(endpoint, methods, rule)
         print(route)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('pages/404.html'), 404
+
+
+@app.errorhandler(500)
+def page_not_found(e):
+    return render_template('404.html'), 500
 
 if __name__ == '__main__':
     manager.run()

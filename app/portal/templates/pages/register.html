@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign up </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords"
+          content="Sign up and Subscribe Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"/>
+
+    <link href="{{ url_for('static', filename='css/main.css')}}" rel='stylesheet' type='text/css'/>
+    <link href="{{ url_for('static', filename='css/font-awesome.css')}}" rel="stylesheet">
+    <!-- Font-Awesome-Icons-CSS -->
+    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700&amp;subset=devanagari,latin-ext"
+          rel="stylesheet">
+
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+
+    </script>
+    <script src="{{ url_for('static', filename='js/vendor/jquery-1.11.2.min.js')}}"></script>
+
+</head>
+<body>
+<div class="layout">
+    <div class="trade-mark">
+        <h1> GREDO </h1>
+        <h2> E-MARKET </h2>
+    </div>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <h4>Full Name</h4>
+        <div class="email">
+            {{ form.name(size = 50) }}
+            <span class="icons i1"><i class="fa fa-user" aria-hidden="true"></i></span>
+        </div>
+        <h4>Username</h4>
+        <div class="email">
+            {{ form.username(size = 50) }}
+            <span class="icons i1"><i class="fa fa-user" aria-hidden="true"></i></span>
+        </div>
+        <h4>Email</h4>
+        <div class="email">
+            {{ form.email(size = 50)}}
+            <span class="icons i1"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+        </div>
+        <h4>Password</h4>
+        <div class="email">
+            {{ form.password(size = 50)}}
+            <span class="icons i1"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+        </div>
+
+        <input type="submit" value="SIGN UP" name="sign-up">
+        <div class="option">
+            <h4>(or) Sign Up with</h4>
+        </div>
+
+        <div class="social_icons agileinfo">
+            <ul class="top-links">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+        </div>
+    </form>
+</div>
+</body>
+</html>

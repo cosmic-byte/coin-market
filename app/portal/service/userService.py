@@ -13,8 +13,7 @@ def save_new_user(data):
         new_user = User(
             public_id=str(uuid.uuid4()),
             email=data['email'],
-            first_name=data['first_name'],
-            last_name=data['last_name'],
+            fullname=data['fullname'],
             username=data['username'],
             password=data['password'],
             registered_on=datetime.datetime.utcnow()
