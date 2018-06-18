@@ -9,14 +9,6 @@ body {
     background: #c7e0db;
 }
 
-h1 {
-    font-size: 40px;
-    text-align: center;
-    padding: 48px 0px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-	color:#fff;
-}
 
 .trade-mark {
     text-align: center;
@@ -87,9 +79,6 @@ input[type="submit"]:hover,.content-wthree input[type="submit"]:hover {
 }
 
 
-span {
-    color: #fff;
-}
 .layout form {
     width: 80%;
     margin: 0 auto;
@@ -153,7 +142,7 @@ ul.top-links li a i.fa.fa-facebook:hover ,ul.top-links li a i.fa.fa-twitter:hove
     display: block;
 }
 
-h4{
+.layout h4{
     margin: 1px auto;
     text-align: left;
     font-family: 'Hind', sans-serif;
@@ -176,4 +165,34 @@ h4{
     color: #fff;
     font-size: 12px;
     text-align: center;
+}
+
+.top-nav a{
+     text-decoration: none;
+     color: #fff;
+     padding: 5px 10px;
+     text-align: center;
+}
+
+.gtStarted{
+     text-decoration: none;
+     color: #fff;
+     padding: 10px 20px;
+     border: 1px solid #fff;
+     text-align: center;
+     border-radius: 5px;
+}
+
+.top-nav {
+     margin: 40px;
+     text-align: center;
+}
+.top-nav ul li{
+    margin : 5px;
+}
+.navbar {
+    min-height: 80px;
+}
+.navbar-header {
+    margin: 20px;
 }

@@ -1,8 +1,10 @@
 from flask import Blueprint, render_template, flash, redirect, url_for
 from markupsafe import escape
 
+from app.portal.service.auth_helper import Auth
 from app.portal.service.userService import save_new_user
-from .forms import SignupForm
+from .forms import SignupForm, LoginForm
+
 frontend = Blueprint('frontend', __name__)
 
 
@@ -13,7 +15,7 @@ def index():
 
 # Shows a long signup form, demonstrating form rendering.
 @frontend.route('/register', methods=['GET', 'POST'])
-def sign_up():
+def register():
     form = SignupForm()
 
     if form.validate_on_submit():
@@ -27,3 +29,18 @@ def sign_up():
         return redirect(url_for('frontend.index'))
 
     return render_template('pages/register.html', form=form)
+
+
+@frontend.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+
+    if form.validate_on_submit():
+
+        data = {'email': form.email.data,
+                'password': form.password.data}
+        response = Auth.login_user(data=data)
+        print(response)
+        return redirect(url_for('frontend.index'))
+
+    return render_template('pages/login.html', form=form)

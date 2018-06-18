@@ -21,3 +21,8 @@ class SignupForm(FlaskForm):
     #                     validators=[DataRequired('You must agree to not agree!')])
 
     # submit = SubmitField(u'Signup')
+
+
+class LoginForm(FlaskForm):
+    password = PasswordField(u'Your favorite password', validators=[DataRequired()])
+    email = StringField(u'Your email address', validators=[Email()])
