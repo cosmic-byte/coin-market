@@ -16,8 +16,7 @@ class User(db.Model):
     admin = db.Column(db.Boolean, nullable=False, default=False)
     public_id = db.Column(db.String(100), unique=True)
     username = db.Column(db.String(50), unique=True)
-    first_name = db.Column(db.String(50))
-    last_name = db.Column(db.String(50))
+    fullname = db.Column(db.String(100))
     password_hash = db.Column(db.String(100))
     messages = db.relationship('Message', backref='user', lazy='dynamic')
 
