@@ -13,6 +13,26 @@ def index():
     return render_template('index.html')
 
 
+@frontend.route('/about')
+def about():
+    return render_template('pages/about.html')
+
+
+@frontend.route('/contact')
+def contact():
+    return render_template('pages/contact.html')
+
+
+@frontend.route('/price')
+def price():
+    return render_template('pages/price.html')
+
+
+@frontend.route('/service')
+def service():
+    return render_template('pages/service.html')
+
+
 # Shows a long signup form, demonstrating form rendering.
 @frontend.route('/register', methods=['GET', 'POST'])
 def register():

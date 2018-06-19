@@ -1,39 +1,166 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-      </div>
-    </div>
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row fullscreen d-flex align-items-center justify-content-start">
+						<div class="banner-content col-lg-9">
+							<h6 class="text-white">Openning on 21st February, 2018</h6>
+							<h1 class="text-white">
+								Exhibition on Modern Era
+							</h1>
+							<p class="pt-20 pb-20 text-white">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.  sed do eiusmod tempor incididunt..
+							</p>
+							<a href="{{ url_for('frontend.register')}}" class="primary-btn text-uppercase">Get Started</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
+			<!-- Start service Area -->
+			<section class="service-area section-gap" id="service">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Our Offered Services</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="single-service">
+								<div class="detail">
+									<a href="#"><h4>Basic & Common Repairs</h4></a>
+									<p>
+										Computer users and programmers have become so accustomed to using Windows, even for the changing capabilities and the appearances of the graphical.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="single-service">
+								<div class="detail">
+									<a href="#"><h4>Brake Repairs & Services</h4></a>
+									<p>
+										Computer users and programmers have become so accustomed to using Windows, even for the changing capabilities and the appearances of the graphical.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="single-service">
+								<div class="detail">
+									<a href="#"><h4>Preventive Maintenance</h4></a>
+									<p>
+										Computer users and programmers have become so accustomed to using Windows, even for the changing capabilities and the appearances of the graphical.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End service Area -->
 
-      <hr>
 
-      <footer>
-        <p>&copy; Company 2015</p>
-      </footer>
-    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+			<!-- Start feature Area -->
+			<section class="feature-area section-gap" id="feature">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-8 pb-40 header-text">
+							<h1>Some Features that Made us Unique</h1>
+							<p>
+								Who are in extremely love with eco friendly system.
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="single-feature">
+								<h4><span class="lnr lnr-user"></span>Expert Technicians</h4>
+								<p>
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="single-feature">
+								<h4><span class="lnr lnr-license"></span>Professional Service</h4>
+								<p>
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="single-feature">
+								<h4><span class="lnr lnr-phone"></span>Great Support</h4>
+								<p>
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="single-feature">
+								<h4><span class="lnr lnr-rocket"></span>Technical Skills</h4>
+								<p>
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="single-feature">
+								<h4><span class="lnr lnr-diamond"></span>Highly Recomended</h4>
+								<p>
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="single-feature">
+								<h4><span class="lnr lnr-bubble"></span>Positive Reviews</h4>
+								<p>
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End feature Area -->
+
+			<!-- Start fact Area -->
+			<section class="facts-area section-gap" id="facts-area">
+				<div class="container">
+					<div class="row">
+						<div class="col single-fact">
+							<h1 class="counter">2536</h1>
+							<p>Projects Completed</p>
+						</div>
+						<div class="col single-fact">
+							<h1 class="counter">6784</h1>
+							<p>Really Happy Clients</p>
+						</div>
+						<div class="col single-fact">
+							<h1 class="counter">1059</h1>
+							<p>Total Tasks Completed</p>
+						</div>
+						<div class="col single-fact">
+							<h1 class="counter">2239</h1>
+							<p>Cups of Coffee Taken</p>
+						</div>
+						<div class="col single-fact">
+							<h1 class="counter">435</h1>
+							<p>In House Professionals</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- end fact Area -->
+
 {% endblock %}
