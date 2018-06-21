@@ -10,7 +10,9 @@ frontend = Blueprint('frontend', __name__)
 
 @frontend.route('/')
 def index():
-    return render_template('index.html')
+    s_form = SignupForm()
+    l_form = LoginForm()
+    return render_template('index.html', sform=s_form, lform=l_form)
 
 
 @frontend.route('/about')

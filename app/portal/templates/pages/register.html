@@ -1,67 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Sign up </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords"
-          content="Sign up and Subscribe Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"/>
+<div class="modal fade" id="sModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content account-popup">
+            <div class="modal-body account-body">
+                 <h3 class="modal-title" id="exampleModalLabel">Create Account</h3>
+                <span class="close-popup" data-dismiss="modal"><i class="la la-close"></i></span>
+                <form action="" method="post">
+                    <div class="cfield">
+                        {{ sform.name(placeholder="Full Name") }}
+                        <i class="la la-user" aria-hidden="true"></i>
+                    </div>
+                    <div class="cfield">
+                        {{ sform.username(placeholder="Username") }}
+                        <i class="la la-user" aria-hidden="true"></i>
+                    </div>
+                    <div class="cfield">
+                        {{ sform.email(placeholder="Email")}}
+                        <i class="la la-envelope-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="cfield">
+                        {{ sform.password(placeholder="Password")}}
+                       <i class="la la-key" aria-hidden="true"></i>
+                    </div>
 
-    <link href="{{ url_for('static', filename='css/font-awesome.min.css')}}" rel="stylesheet">
-    <!-- Font-Awesome-Icons-CSS -->
-    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700&amp;subset=devanagari,latin-ext"
-          rel="stylesheet">
+                    <input type="submit" value="SIGN UP" name="sign-up">
 
-    <script type="application/x-javascript">
-         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
-
-    </script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
-    <script src="{{ url_for('static', filename='js/vendor/jquery-1.11.2.min.js')}}"></script>
-
-</head>
-<body>
-<div class="layout">
-    <div class="trade-mark">
-        <h1> GREDO </h1>
-        <h2> E-MARKET </h2>
+                    <div class="social_icons agileinfo">
+                        <ul class="top-links">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <h4>Full Name</h4>
-        <div class="email">
-            {{ form.name(size = 50) }}
-            <span class="icons i1"><i class="fa fa-user" aria-hidden="true"></i></span>
-        </div>
-        <h4>Username</h4>
-        <div class="email">
-            {{ form.username(size = 50) }}
-            <span class="icons i1"><i class="fa fa-user" aria-hidden="true"></i></span>
-        </div>
-        <h4>Email</h4>
-        <div class="email">
-            {{ form.email(size = 50)}}
-            <span class="icons i1"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-        </div>
-        <h4>Password</h4>
-        <div class="email">
-            {{ form.password(size = 50)}}
-            <span class="icons i1"><i class="fa fa-unlock" aria-hidden="true"></i></span>
-        </div>
-
-        <input type="submit" value="SIGN UP" name="sign-up">
-        <div class="option">
-            <h4>(or) Sign Up with</h4>
-        </div>
-
-        <div class="social_icons agileinfo">
-            <ul class="top-links">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-        </div>
-    </form>
 </div>
-</body>
-</html>
