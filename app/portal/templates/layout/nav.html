@@ -11,8 +11,8 @@
             </div>
             <div class="col-6 top-head-right">
                 <ul>
-                    <li><a href="{{ url_for('frontend.login')}}">login</a></li>
-                    <li><a href="{{ url_for('frontend.register')}}">register</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#lModal">login</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#sModal">register</a></li>
                 </ul>
             </div>
         </div>
@@ -40,3 +40,6 @@
         </div>
     </div>
 </header><!-- #header -->
+
+{% include "pages/register.html" %}
+{% include "pages/login.html" %}

@@ -1,57 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Sign up </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords"
-          content="Sign up and Subscribe Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"/>
+<div class="modal fade" id="lModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content account-popup">
+            <div class="modal-body account-body">
+                <span class="close-popup" data-dismiss="modal"><i class="la la-close"></i></span>
+                <h3 class="modal-title" id="signModal">Login</h3>
 
-    <link href="{{ url_for('static', filename='css/font-awesome.min.css')}}" rel="stylesheet">
-    <!-- Font-Awesome-Icons-CSS -->
-    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700&amp;subset=devanagari,latin-ext"
-          rel="stylesheet">
+                <form action="" method="post">
+                    {{ lform.hidden_tag() }}
+                    <div class="cfield">
+                        {{ lform.email(placeholder="Email")}}
+                        <i class="la la-user"></i>
+                    </div>
+                    <div class="cfield">
+                        {{ lform.password(placeholder="Password")}}
+                        <i class="la la-key"></i>
+                    </div>
 
-    <script type="application/x-javascript">
-         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+                    <input type="submit" value="SIGN IN" name="sign-up">
 
-    </script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
-    <script src="{{ url_for('static', filename='js/vendor/jquery-1.11.2.min.js')}}"></script>
-
-</head>
-<body>
-<div class="layout">
-    <div class="trade-mark">
-        <h1> GREDO </h1>
-        <h2> E-MARKET </h2>
+                    <div class="social_icons agileinfo">
+                        <ul class="top-links">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <h4>Email</h4>
-        <div class="email">
-            {{ form.email(size = 50)}}
-            <span class="icons i1"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-        </div>
-        <h4>Password</h4>
-        <div class="email">
-            {{ form.password(size = 50)}}
-            <span class="icons i1"><i class="fa fa-unlock" aria-hidden="true"></i></span>
-        </div>
-
-        <input type="submit" value="SIGN IN" name="sign-in">
-        <div class="option">
-            <h4>(or) Sign In with</h4>
-        </div>
-
-        <div class="social_icons agileinfo">
-            <ul class="top-links">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-        </div>
-    </form>
 </div>
-</body>
-</html>
